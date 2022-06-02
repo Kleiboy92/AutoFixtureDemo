@@ -20,12 +20,25 @@ namespace api.test
                 if (pi.PropertyType == typeof(string)
                     && pi.Name.ToLowerInvariant().Equals("email"))
                 {
-                    int randomInt = _random.Next(1000);  
-                    return $"username{randomInt}@gmail.com";
+                    return GenerateEmail();
                 }
             }
 
+            if (request is ParameterInfo parameterInfo)
+            {
+                if (parameterInfo.ParameterType == typeof(string)
+                    && parameterInfo.Name.ToLowerInvariant().Equals("email"))
+                {
+                    return GenerateEmail();
+                }
+            }
             return new NoSpecimen();
+        }
+
+        private string GenerateEmail()
+        {
+            int randomInt = _random.Next(1000);
+            return $"username{randomInt}@gmail.com";
         }
     }
 }

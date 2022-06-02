@@ -10,7 +10,7 @@ using Xunit;
 namespace api.test
 {
     //Inline preview
-    public class CachedUserGetter_ShouldInline
+    public class CachedUserGetter_ShouldV6Inline
     {
         [Theory]
         [InlineAutoMoqData("some@email.com")]

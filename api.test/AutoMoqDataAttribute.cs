@@ -1,6 +1,4 @@
-﻿using api.Models;
-using AutoFixture;
-using AutoFixture.AutoMoq;
+﻿using AutoFixture;
 using AutoFixture.Xunit2;
 
 namespace api.test
@@ -9,20 +7,9 @@ namespace api.test
     {
         public AutoMoqDataAttribute() : base(() =>
         {
-            IFixture fixture = new Fixture().Customize(new AutoMoqCustomization {ConfigureMembers = true});
-            
-            
-            fixture.Customize<UserModel>(c => c
-                .Without(x => x.PhoneNumber)
-                .Do(x => x.PhoneNumber = "+37062522545"));
-
-
-            fixture.Customizations.Add(new EmailSpecimenBuilder());
-            return fixture;
+            return new Fixture().Customize(new GlobalCustomization());
         })
-            
         {
-            
         }
     }
 }

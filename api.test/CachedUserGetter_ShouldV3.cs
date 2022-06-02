@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using api.Controllers;
 using api.Models;
 using api.Services;
-using AutoFixture;
 using AutoFixture.Xunit2;
 using Microsoft.Extensions.Logging;
 using Moq;
